@@ -60,7 +60,30 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
 <div class="hero">
   <div class="logo"><span class="a">Eason</span><span class="b">'s MC</span></div>
   <div class="tagline">✦ 网页版我的世界 · 无需下载 · 打开即玩 ✦</div>
-  <div class="info">基于 EaglercraftX u53  · 支持简体/繁体中文 · PC 与手机 P2P 互通</div>
+  <div class="info">基于 EaglercraftX u53  · 支持简体/繁体中文 · PC 与手机 P2P 互通
+  <div id="network_hint" style="margin-top:14px;display:none;font-size:13px;background:rgba(255,193,7,.08);border:1px solid rgba(255,193,7,.15);border-radius:10px;padding:8px 16px;color:#ffc107;max-width:500px;margin-left:auto;margin-right:auto">
+    ⚡ 如果加载速度不理想，<a href="https://nameefef.github.io/mc/" target="_blank" style="color:#64ffda;text-decoration:underline;font-weight:600">点此切换到国内源</a>
+    <span style="color:#5a6a8a;font-size:12px;display:block;margin-top:2px">GitHub Pages 加速 · 中国大陆直连</span>
+  </div>
+  <script>
+  // 检测加载速度，慢的话显示国内源提示
+  (function(){
+    var hint = document.getElementById("network_hint");
+    if(!hint) return;
+    var start = performance.now();
+    // 如果页面加载超过 3 秒则提示（说明网络较慢）
+    setTimeout(function(){
+      var elapsed = performance.now() - start;
+      if(elapsed > 3000) {
+        hint.style.display = "block";
+      }
+    }, 3000);
+    // 即使没慢也显示一个小提示在底部
+    setTimeout(function(){
+      hint.style.display = "block";
+    }, 5000);
+  })();
+  </script></div>
 </div>
 
 <div class="cards">
@@ -106,7 +129,7 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
 <div class="footer">
   <p>两个版本基于同一引擎，<strong style="color:#64ffda;">P2P 联机互通</strong>，PC 和手机可以一起玩！</p>
   <p>存档保存在浏览器本地 · 支持共享世界 · 支持公共服务器</p>
-  <p><a href="https://github.com/nameefef/ESNMC" target="_blank">GitHub</a> · <a href="https://eaglercraft.com" target="_blank">EaglercraftX u53</a> · Made with ❤️ by Eason</p>
+  <p><a href="https://github.com/nameefef/ESNMC" target="_blank">GitHub</a> · <a href="https://eaglercraft.com" target="_blank">EaglercraftX u53</a> · <a href="https://nameefef.github.io/mc/" target="_blank" style="color:#ffc107;">🇨🇳 国内加速源</a> · Made with ❤️ by Eason</p>
 </div>
 </body>
 </html>
