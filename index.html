@@ -61,33 +61,22 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
   <div class="logo"><span class="a">Eason</span><span class="b">'s MC</span></div>
   <div class="tagline">✦ 网页版我的世界 · 无需下载 · 打开即玩 ✦</div>
   <div class="info">基于 EaglercraftX u53  · 支持简体/繁体中文 · PC 与手机 P2P 互通
-  <div id="network_hint" style="margin-top:14px;display:none;font-size:13px;background:rgba(255,193,7,.08);border:1px solid rgba(255,193,7,.15);border-radius:10px;padding:8px 16px;color:#ffc107;max-width:500px;margin-left:auto;margin-right:auto">
-    ⚡ 如果加载速度不理想，<a href="https://nameefef.github.io/mc/" target="_blank" style="color:#64ffda;text-decoration:underline;font-weight:600">点此切换到国内源</a>
-    <span style="color:#5a6a8a;font-size:12px;display:block;margin-top:2px">GitHub Pages 加速 · 中国大陆直连</span>
+  <div id="network_hint" style="display:none;margin-top:12px;font-size:13px;background:rgba(255,193,7,.08);border:1px solid rgba(255,193,7,.15);border-radius:10px;padding:10px 16px;color:#ffc107;max-width:540px;margin-left:auto;margin-right:auto">
+    ⚡ 加载速度不理想？<a href="https://nameefef.github.io/mc/" target="_blank" style="color:#64ffda;text-decoration:underline;font-weight:600">点此跳转国内加速源</a>
+    <span style="color:#5a6a8a;font-size:12px;display:block;margin-top:3px">GitHub Pages · 中国大陆直连 · 和海外版 P2P 互通</span>
   </div>
   <script>
-  // 检测加载速度，慢的话显示国内源提示
   (function(){
-    var hint = document.getElementById("network_hint");
-    if(!hint) return;
-    var start = performance.now();
-    // 如果页面加载超过 3 秒则提示（说明网络较慢）
-    setTimeout(function(){
-      var elapsed = performance.now() - start;
-      if(elapsed > 3000) {
-        hint.style.display = "block";
-      }
-    }, 3000);
-    // 即使没慢也显示一个小提示在底部
-    setTimeout(function(){
-      hint.style.display = "block";
-    }, 5000);
+    var h=document.getElementById("network_hint");
+    if(!h)return;
+    var t=setTimeout(function(){h.style.display="block"},4000);
+    // 如果页面 4 秒还没加载完就提示
   })();
   </script></div>
 </div>
 
 <div class="cards">
-  <a class="card pc" href="pc/">
+  <a class="card pc" href="pc/"
     <div class="icon">🖥️</div>
     <div class="name">PC 版</div>
     <div class="desc">键盘鼠标操作，流畅高帧率，适合桌面浏览器</div>
@@ -106,7 +95,7 @@ body{display:flex;flex-direction:column;align-items:center;justify-content:cente
     <div class="btn blue">进入 PC 版 →</div>
   </a>
 
-  <a class="card mobile" href="mobile/">
+  <a class="card mobile" href="mobile/"
     <div class="icon">📱</div>
     <div class="name">手机版</div>
     <div class="desc">触屏优化，多点操控，手机/平板都能畅玩</div>
