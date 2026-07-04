@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Eason's Minecraft.js - 网页版我的世界，选择 PC 版或手机版，P2P 联机互通，无需下载打开即玩" />
+<meta name="keywords" content="Eason's Minecraft.js, 网页版我的世界, MC, EaglercraftX, 联机, P2P" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Eason's Minecraft.js - 网页版我的世界" />
+<meta property="og:description" content="选择 PC 版或手机版，P2P 联机互通，无需下载打开即玩" />
+<title>Eason's Minecraft.js - 网页版我的世界</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;min-height:100%;background:#0d0d1a;font-family:-apple-system,BlinkMacSystemFont,"Microsoft YaHei","PingFang SC","Helvetica Neue",sans-serif;color:#e2e2e2;overflow-x:hidden}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 16px}
+.hero{text-align:center;margin-bottom:50px;margin-top:20px}
+.hero .logo{font-size:clamp(40px,10vw,72px);font-weight:800;letter-spacing:4px;text-shadow:0 0 50px rgba(79,172,254,.25)}
+.hero .logo .a{color:#4facfe}
+.hero .logo .b{color:#64ffda}
+.hero .tagline{font-size:clamp(14px,4vw,18px);color:#8892b0;margin-top:12px;letter-spacing:2px}
+.hero .info{font-size:clamp(12px,3.2vw,14px);color:#4a5a7a;margin-top:8px}
+.cards{display:flex;gap:30px;flex-wrap:wrap;justify-content:center;max-width:900px;width:100%}
+.card{flex:1;min-width:280px;max-width:420px;background:linear-gradient(145deg,#1a1a2e 0%,#16213e 100%);border:1px solid rgba(79,172,254,.08);border-radius:20px;padding:clamp(24px,5vw,40px);text-align:center;cursor:pointer;transition:all .3s ease;text-decoration:none;color:inherit;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#4facfe,transparent);opacity:0;transition:opacity .3s}
+.card:hover::before{opacity:1}
+.card:hover{transform:translateY(-6px);border-color:rgba(79,172,254,.25);box-shadow:0 20px 60px rgba(79,172,254,.08)}
+.card:active{transform:translateY(-2px)}
+.card .icon{font-size:clamp(48px,10vw,64px);margin-bottom:16px;line-height:1}
+.card .name{font-size:clamp(20px,5vw,28px);font-weight:700;margin-bottom:8px}
+.card .pc .name{color:#4facfe}
+.card .mobile .name{color:#64ffda}
+.card .desc{font-size:clamp(13px,3.5vw,15px);color:#8892b0;line-height:1.7;margin-bottom:20px}
+.card .badge{display:inline-block;padding:4px 14px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:1px;margin:3px 3px}
+.card .badge.blue{background:rgba(79,172,254,.12);color:#4facfe}
+.card .badge.green{background:rgba(100,255,218,.12);color:#64ffda}
+.card .badge.gray{background:rgba(255,255,255,.05);color:#6a7a9a}
+.card .btn{display:inline-block;margin-top:16px;padding:12px 36px;border-radius:12px;font-size:15px;font-weight:600;transition:all .2s;border:none;cursor:pointer}
+.card .btn.blue{background:linear-gradient(135deg,#4facfe,#00f2fe);color:#1a1a2e;box-shadow:0 4px 20px rgba(79,172,254,.2)}
+.card .btn.green{background:linear-gradient(135deg,#64ffda,#00b894);color:#1a1a2e;box-shadow:0 4px 20px rgba(100,255,218,.2)}
+.card .btn:hover{transform:scale(1.05);box-shadow:0 6px 30px rgba(79,172,254,.3)}
+.card .btn:active{transform:scale(.97)}
+.card .features{text-align:left;margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.04)}
+.card .features li{list-style:none;padding:4px 0;font-size:13px;color:#6a7a9a;display:flex;align-items:center;gap:8px}
+.card .features li::before{content:"✓";color:currentColor;font-weight:700}
+.card .pc .features li::before{color:#4facfe}
+.card .mobile .features li::before{color:#64ffda}
+.footer{text-align:center;margin-top:60px;margin-bottom:20px;font-size:13px;color:#3a4a5a;line-height:1.8}
+.footer a{color:#4facfe;text-decoration:none}
+.footer a:hover{text-decoration:underline}
+@media(max-width:600px){
+  body{padding:16px}
+  .cards{gap:20px}
+  .card{padding:24px}
+  .hero{margin-bottom:30px}
+}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="logo"><span class="a">Eason</span><span class="b">'s MC</span></div>
+  <div class="tagline">✦ 网页版我的世界 · 无需下载 · 打开即玩 ✦</div>
+  <div class="info">基于 EaglercraftX u53  · 支持简体/繁体中文 · PC 与手机 P2P 互通</div>
+</div>
+
+<div class="cards">
+  <a class="card pc" href="pc/">
+    <div class="icon">🖥️</div>
+    <div class="name">PC 版</div>
+    <div class="desc">键盘鼠标操作，流畅高帧率，适合桌面浏览器</div>
+    <div>
+      <span class="badge blue">WebGL</span>
+      <span class="badge green">P2P 联机</span>
+      <span class="badge gray">键盘+鼠标</span>
+      <span class="badge gray">WASM 加速</span>
+    </div>
+    <ul class="features">
+      <li>最高 120fps，WASM 技术加速</li>
+      <li>键盘 WASD 移动，鼠标视角</li>
+      <li>支持光影特效（内置）</li>
+      <li>存档导出/导入 EPK 格式</li>
+    </ul>
+    <div class="btn blue">进入 PC 版 →</div>
+  </a>
+
+  <a class="card mobile" href="mobile/">
+    <div class="icon">📱</div>
+    <div class="name">手机版</div>
+    <div class="desc">触屏优化，多点操控，手机/平板都能畅玩</div>
+    <div>
+      <span class="badge green">触屏优化</span>
+      <span class="badge blue">P2P 联机</span>
+      <span class="badge gray">多点触控</span>
+      <span class="badge gray">横屏锁定</span>
+    </div>
+    <ul class="features">
+      <li>双指拖动视角，点击/长按操作</li>
+      <li>防误触设计，页面不滚动</li>
+      <li>自动横屏锁定（支持旋转）</li>
+      <li>与 PC 版 P2P 互联互通</li>
+    </ul>
+    <div class="btn green">进入手机版 →</div>
+  </a>
+</div>
+
+<div class="footer">
+  <p>两个版本基于同一引擎，<strong style="color:#64ffda;">P2P 联机互通</strong>，PC 和手机可以一起玩！</p>
+  <p>存档保存在浏览器本地 · 支持共享世界 · 支持公共服务器</p>
+  <p><a href="https://github.com/nameefef/ESNMC" target="_blank">GitHub</a> · <a href="https://eaglercraft.com" target="_blank">EaglercraftX u53</a> · Made with ❤️ by Eason</p>
+</div>
+</body>
+</html>
